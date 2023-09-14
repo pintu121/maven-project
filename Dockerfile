@@ -1,7 +1,5 @@
-FROM tomcat:9
-WORKDIR /usr/local/tomcat/webapps/
-#COPY /var/lib/jenkins/workspace/demoproject/target/hello-1.0.war /var/lib/jenkins/workspace/demoproject/
-#COPY hello-1.0.war /usr/local/tomcat/webapps
-ADD ./target/*.jar /usr/local/tomcat/webapps/
-CMD ["catalina.sh", "run"]
+FROM java:8
+WORKDIR /
+ADD target/my-app-1.0-SNAPSHOT.jar HelloWorld.jar
 EXPOSE 8080
+CMD java - jar HelloWorld.jar
