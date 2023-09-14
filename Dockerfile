@@ -1,6 +1,4 @@
-FROM openjdk
-WORKDIR /
-ADD target/my-app-1.0-SNAPSHOT.jar HelloWorld.jar
-RUN HelloWorld.jar
-EXPOSE 8080
-CMD ["java","App"]
+FROM openjdk:11
+WORKDIR /app
+COPY target/my-app-1.0-SNAPSHOT.jar .
+ENTRYPOINT ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
