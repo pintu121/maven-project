@@ -1,4 +1,4 @@
-FROM openjdk:11
-WORKDIR /app
-COPY target/my-app-1.0-SNAPSHOT.jar .
-ENTRYPOINT ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
